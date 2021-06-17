@@ -185,7 +185,7 @@ public class BTree<K extends Comparable<K>, V> {
 					aux(pattern, r, key);
 				}
 			}
-			else {// NÛ interno
+			else {// N√≥ interno
 				Page<K> left = r.nextPage(bsST.getFilhos(pos));
 				Page<K> right = r.nextPage(bsST.getFilhos(pos + 1));
 				
@@ -273,7 +273,7 @@ public class BTree<K extends Comparable<K>, V> {
 	private void aux(Page<K> pattern, Page<K> r, K key) throws Exception {
 		int posF = pattern.asSymbolTable().rank(key);
 		if (r.qtdMin()) {
-			System.out.println("---O nÛ tem a Qtd min---");
+			System.out.println("---O n√≥ tem a Qtd min---");
 			Page<K> irmaoLeft = null;
 			Page<K> irmaoRight = null;
 			
@@ -290,14 +290,14 @@ public class BTree<K extends Comparable<K>, V> {
 			}
 			
 			if(irmaoLeft!=null && !irmaoLeft.qtdMin()) {
-				System.out.println("O irmao left n„o tem QTD MIN");
+				System.out.println("O irmao left n√£o tem QTD MIN");
 				rotateLeft(irmaoLeft, pattern, r, posF, ks, vl);
 			
 			}else if(irmaoRight!=null && !irmaoRight.qtdMin()) {
-				System.out.println("O irmao right n„o tem QTD MIN");
+				System.out.println("O irmao right n√£o tem QTD MIN");
 				rotateRight(irmaoRight, pattern, r, posF+1, ks, vl);
 				
-			}else {//os dois tem a quantidade minima ou um deles È nulo
+			}else {//os dois tem a quantidade minima ou um deles √© nulo
 				if(irmaoLeft!=null && irmaoLeft.qtdMin()) {
 					System.out.println("O irmao left tem QTD MIN");
 					irmaoLeft.insert(ks, vl);
@@ -331,48 +331,6 @@ public class BTree<K extends Comparable<K>, V> {
 		for(int i = 4 ;i < 50 ; i++) st.put(i, i);
 		  
 		System.out.println("\n---------\n");
-		  
-		//st.remove(7);
-		//st.put(7, 7);
-		// for(Integer ks : st.keys()) System.out.println(ks+" ");		 
-		 
-		/*
-		StringDT keyDT = new StringDT(21);
-		StringDT valDT = new StringDT(16);
-
-		File keysFile = new File("keys.dat");
-		PageSerializer<String> ps = new PageSerializer<>(keysFile, keyDT, 4);
-
-		File valuesFile = new File("data.dat");
-		DataSerializer<String> ds = new DataSerializer<>(valuesFile, valDT);
-
-		BTree<String, String> st = new BTree<String, String>(ps, ds);
-
-		st.put("www.cs.princeton.edu", "128.112.136.12");
-		st.put("www.cs.princeton.edu", "128.112.136.11");
-		st.put("www.princeton.edu", "128.112.128.15");
-		st.put("www.yale.edu", "130.132.143.21");
-		st.put("www.simpsons.com", "209.052.165.60");
-		st.put("www.apple.com", "17.112.152.32");
-		st.put("www.amazon.com", "207.171.182.16");
-		st.put("www.ebay.com", "66.135.192.87");
-		st.put("www.cnn.com", "64.236.16.20");
-		st.put("www.google.com", "216.239.41.99");
-		st.put("www.nytimes.com", "199.239.136.200");
-		st.put("www.microsoft.com", "207.126.99.140");
-		st.put("www.dell.com", "143.166.224.230");
-		st.put("www.slashdot.org", "66.35.250.151");
-		st.put("www.espn.com", "199.181.135.201");
-		st.put("www.weather.com", "63.111.66.11");
-		st.put("www.yahoo.com", "216.109.118.65");
-		st.put("www.crateus.ufc.br", "200.19.190.7");
-		st.put("www.ufc.br", "200.17.41.185");
-
-		System.out.println("Keys:");
-		for (String key : st.keys())
-			System.out.println(key);
-		System.out.println("Get" + st.get("www.crateus.ufc.br"));
-		*/
 	}
 
 }
